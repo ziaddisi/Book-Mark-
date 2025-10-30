@@ -9,10 +9,7 @@ const displaySites = () => {
             <td>${site.siteUrl}</td>
             <td>${site.userEmail}</td>
             <td>${site.userPassword}</td>
-            <td>
-                <a href="${site.siteUrl}" target="_blank" class="btn btn-sm btn-success">Visit</a>
-                <button onclick="deleteSite(${index})" class="btn btn-sm btn-danger">Delete</button>
-            </td>
+            
         </tr>`;
     });
     document.querySelector(".sites_data").innerHTML = result.join("");
@@ -34,10 +31,3 @@ bookMarkForm.addEventListener("submit", (e) => {
     displaySites();
 });
 
-function deleteSite(index) {
-    sites.splice(index, 1);
-    localStorage.setItem("sites", JSON.stringify(sites));
-    displaySites();
-}
-
-displaySites();
